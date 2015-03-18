@@ -7,6 +7,7 @@ WatchKit Extension上で```WKInterfaceController#openParentApplication:reply:```
 第一引数にNSDictionary型でiPhoneアプリへ渡すデータを書きます。
 第二引数のreplyブロックでiPhoneから渡されたデータがreplyInfoに入ります。
 
+InterfaceController.m
 ```objective-c
 - (IBAction)sendToiPhone {
     self.count ++;
