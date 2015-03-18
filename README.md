@@ -77,4 +77,8 @@ WatchApp側ではNSDataからUIImageに変換して画像表示しましょう
 
 ```
 
+## 画像について
+©Clara S.
+http://www.flickr.com/photos/pictureclara/7196979364/in/photostream/
+
 
