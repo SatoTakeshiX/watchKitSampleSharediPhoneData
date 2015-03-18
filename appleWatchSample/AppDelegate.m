@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,6 +19,29 @@
     // Override point for customization after application launch.
     return YES;
 }
+
+- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void(^)(NSDictionary *replyInfo))reply
+{
+    //watchからのデータはuserInfoに入っている。
+    NSNumber *watchCount = [userInfo valueForKey:@"watchValue"];
+    
+    //watchからのデータをiPhoneの画面に表示させる。
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    ViewController *vc = (ViewController *)appDelegate.window.rootViewController;
+    vc.watchCountLabel.text = [NSString stringWithFormat:@"アップルウォッチでのカウントは%ld回", [watchCount integerValue]];
+    
+    //iPhoneからwatchへ画像データを送る。
+    UIImage *nekoImage = [UIImage imageNamed:@"neko"];
+    NSData *nekoData = [[NSData alloc] initWithData:UIImagePNGRepresentation(nekoImage)];
+    reply(
+          @{
+            @"iPhoneData":@(1),
+            @"nekoImage":nekoData//UIImageオブジェクトをそのまま送ると送信が失敗してしまう。NSDataに直して送る。
+            }
+    );
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
