@@ -1,0 +1,5 @@
+# watchKitSampleSharediPhoneData
+iPhoneとAppleWatchのデータのやり取りサンプルアプリ
+AppleWatchのボタンタップ回数をiPhoneへ送り、iPhoneからは画像データを送信。AppleWatchにその画像を表示させる。
+
+## iPhoneと
