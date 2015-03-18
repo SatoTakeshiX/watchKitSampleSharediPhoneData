@@ -34,6 +34,7 @@ AppDelegate.mで```UIApplicationDelegate#application:handleWatchKitExtensionRequ
 watchAppからのデータはuserInfoに入ってます。
 iPhoneからWatchAppへデータを渡す際はreplyオブジェクトに設定します。
 
+AppDelegate.m
 ```objective-c
 - (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void(^)(NSDictionary *replyInfo))reply
 {
