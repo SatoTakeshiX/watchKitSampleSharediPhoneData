@@ -3,8 +3,9 @@
 //  appleWatchSample
 //
 //  Created by satoutakeshi on 2015/03/18.
-//  Copyright (c) 2015年 satoutakeshi. All rights reserved.
-//
+//  Copyright (c) 2015年 satoutakeshi.
+//　image by　Clara S.
+// http://www.flickr.com/photos/pictureclara/7196979364/in/photostream/
 
 #import "AppDelegate.h"
 #import "ViewController.h"
