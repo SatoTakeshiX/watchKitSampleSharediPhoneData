@@ -7,7 +7,7 @@ WatchKit Extension上で```WKInterfaceController#openParentApplication:reply:```
 第一引数にNSDictionary型でiPhoneアプリへ渡すデータを書きます。
 第二引数のreplyブロックでiPhoneから渡されたデータがreplyInfoに入ります。
 
-```InterfaceController.m
+```objective-c
 - (IBAction)sendToiPhone {
     self.count ++;
     [WKInterfaceController openParentApplication:@{
@@ -33,7 +33,7 @@ AppDelegate.mで```UIApplicationDelegate#application:handleWatchKitExtensionRequ
 watchAppからのデータはuserInfoに入ってます。
 iPhoneからWatchAppへデータを渡す際はreplyオブジェクトに設定します。
 
-```AppDelegate.m
+```objective-c
 - (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void(^)(NSDictionary *replyInfo))reply
 {
     //watchからのデータはuserInfoに入っている。
@@ -61,14 +61,14 @@ UIImageオブジェクトをそのままNSDictonaryにして渡しても送れ�
 UIImageはNSDataに変換して送りましょう。
 iPhone側の処理は以下です。
 
-```AppDelegate.m
+```objective-c
     //iPhoneからwatchへ画像データを送る。
     UIImage *nekoImage = [UIImage imageNamed:@"neko"];
     NSData *nekoData = [[NSData alloc] initWithData:UIImagePNGRepresentation(nekoImage)];
 ```
 
 WatchApp側ではNSDataからUIImageに変換して画像表示しましょう
-```InterfaceController.m
+```objective-c
                                                       //iPhoneからwatchへ送られたデータ
                                                       NSData *nekoData = replyInfo[@"nekoImage"];
                                                
